@@ -1,0 +1,1 @@
+https://api.gbif.org/v1/occurrence/search?taxonKey=2418054&taxonKey=2417981&taxonKey=2418064&decimalLongitude=114,117&decimalLatitude=-9.5,-8&hasCoordinate=true&limit=300
