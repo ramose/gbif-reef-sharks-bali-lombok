@@ -62,7 +62,7 @@
   fetched live 9 Nov 2026 — mainly iNaturalist research-grade observations (116) and Diveboard scuba
   citizen science (34). Query: taxonKey 2418054 (whitetip) + 2417981 (blacktip reef) + 2418064 (grey reef),
   decimalLongitude 114,117, decimalLatitude −9.5,−8, hasCoordinate=true, limit=300.
-  Click any pin for date, locality and the GBIF record. Basemap: OpenFreeMap (OpenStreetMap data);
+  Click any pin for date, locality and the GBIF record. Basemap: Carto Light (OpenStreetMap data);
   switch basemap with the layers control, top right.
 </footer>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -76,16 +76,14 @@ const COLORS = {
 };
 
 const map = L.map("map").setView([-8.55, 115.45], 9);
-const openFreeMap = L.tileLayer("https://tiles.openfreemap.org/planet/{z}/{x}/{y}.png", {
-  maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://openfreemap.org">OpenFreeMap</a>'
-}).addTo(map);
+
 const carto = L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
   maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
-});
+}.addTo(map);
 const esri = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
   maxZoom: 19, attribution: "Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics"
 });
-L.control.layers({ "OpenFreeMap": openFreeMap, "Carto Light": carto, "Esri Satellite": esri }).addTo(map);
+L.control.layers({ "Carto Light": carto, "Esri Satellite": esri }).addTo(map);
 
 let cluster = null;
 function activeSpecies() {
